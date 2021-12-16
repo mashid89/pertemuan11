@@ -59,39 +59,40 @@ while True:
     print('\ntambah\t(1)\nubah\t(2)\nhapus\t(3)\nlihat\t(4)\nkeluar\t(5) ')                                                                                     
     c = input("\nsilahkan masukan pilihan : ")                              
 ```
-lalu saya membuat format if untuk memasukan pilihan ,
+lalu saya membuat function untuk memasukan pilihan ,
 sebagai contoh apabila memilih (1) akan menambah data
 ```py
-if (c.lower() == '1'):                                               
-        print('\nTambah Data Mahasiswa Baru')
-        nama= input("Masukkan Nama\t\t: ")                                        
-        nim= input("Masukkan NIM\t\t: ")                                         
-        nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))                              
-        nilaiUts= int(input("Masukkan Nilai UTS\t: "))                                   
-        nilaiUas= int(input("Masukkan Nilai UAS\t: "))                                    
-        nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)              
-        dataMhs[nama]= nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir                         
-        print("\nData Berhasil Ditambahkan!")
+def tambah():
+    print('\nTambah Data Mahasiswa')
+    nama= input("Masukkan Nama\t\t: ")                                        
+    nim= input("Masukkan NIM\t\t: ")                                         
+    nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))                              
+    nilaiUts= int(input("Masukkan Nilai UTS\t: "))                                   
+    nilaiUas= int(input("Masukkan Nilai UAS\t: "))                                    
+    nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)
+    dt[nama]=nim,nilaiTugas,nilaiUts,nilaiUas,nilaiAkhir,
 ```
-saya juga melakukan percabangan if (elif) untuk melaksanakan pilihan yang lain
+saya juga menambahkan function lain untuk melaksanakan pilihan yang lain
+sebagai contoh apabila saya memilih (2) akan mengubah data
 ```py
-elif (c.lower() == '2'):                                                                    
-        print('\nMengedit Data Mahasiswa')
-        nama = input("Masukkan Nama: ")                                                         
-        if nama in dataMhs.keys():                              
-            nim= input("Masukkan NIM Baru\t: ")                              
-            nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))                           
-            nilaiUts= int(input("Masukkan Nilai UTS\t: "))                           
-            nilaiUas= int(input("Masukkan Nilai UAS\t: "))                           
-            nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)          
-            dataMhs[nama] = nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir                      
-            print("\nData Berhasil Di Update!")
+def ubah():
+    print('\nMengubah Data Mahasiswa')
+    nama = input("Masukkan Nama: ")                                                         
+    if nama in dt.keys():                              
+        nim= input("Masukkan NIM Baru\t: ")                              
+        nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))                           
+        nilaiUts= int(input("Masukkan Nilai UTS\t: "))                           
+        nilaiUas= int(input("Masukkan Nilai UAS\t: "))                           
+        nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)          
+        dt[nama] = nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir                      
+        print("\nData Berhasil Di Update!\n")
 ```
-dan saya juga menggunakan else untuk apabila salah memasukan pilihan inputan 
+dan saya juga menggunakan else untuk mengakhiri program 
 ```py
-
 else:
-        print("\nMohon maaf input salah\n\nSilahkan pilih menu yang tersedia: ")                                                                                                            
+    keluar()
+    break
+                                                                                                           
 ```
 ## tampilan pada visual studio code
 ![img](gambar/vscode2.PNG)
